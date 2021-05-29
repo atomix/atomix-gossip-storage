@@ -161,12 +161,12 @@ spec:
   protocol:
     group: storage.atomix.io
     kind: GossipProtocol
-  config:
-    group: storage.atomix.io
-    kind: GossipConfig
   drivers:
   - version: v2beta1
     image: atomix/atomix-gossip-storage-driver:latest
+    config:
+      group: storage.atomix.io
+      kind: GossipConfig
 ---
 apiVersion: v1
 kind: ServiceAccount
