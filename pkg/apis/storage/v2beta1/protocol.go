@@ -44,6 +44,7 @@ type GossipProtocolStatus struct {
 	Pods                    []PodStatus `json:"pods,omitempty"`
 }
 
+// PodStatus represents the status of the protocol configuration for a pod
 type PodStatus struct {
 	corev1.ObjectReference `json:",inline"`
 	Revision               int64 `json:"revision,omitempty"`

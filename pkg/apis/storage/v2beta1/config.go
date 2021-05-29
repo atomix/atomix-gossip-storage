@@ -19,16 +19,20 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
+// GossipClock is a gossip clock configuration
 type GossipClock struct {
 	Logical  *LogicalClock  `json:"logical,omitempty"`
 	Physical *PhysicalClock `json:"physical,omitempty"`
 	Epoch    *EpochClock    `json:"epoch,omitempty"`
 }
 
+// LogicalClock configures a logical clock for the gossip protocol
 type LogicalClock struct{}
 
+// PhysicalClock configures a physical clock for the gossip protocol
 type PhysicalClock struct{}
 
+// EpochClock configures an epoch-based clock for the gossip protocol
 type EpochClock struct {
 	Election corev1.LocalObjectReference `json:"election,omitempty"`
 }

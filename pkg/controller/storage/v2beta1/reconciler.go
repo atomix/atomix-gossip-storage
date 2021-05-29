@@ -46,7 +46,6 @@ import (
 
 const (
 	apiPort               = 5678
-	protocolPortName      = "gossip"
 	defaultImageEnv       = "DEFAULT_NODE_V2BETA1_IMAGE"
 	defaultImage          = "atomix/atomix-gossip-storage-node:latest"
 	headlessServiceSuffix = "hs"
@@ -514,9 +513,8 @@ func newNodeConfigString(protocol *storagev2beta1.GossipProtocol) (string, error
 			partitionReplicas[i] = replicaNames[(partitionID+i)%len(replicaNames)]
 		}
 		partition := protocolapi.ProtocolPartition{
-			PartitionID:
-			uint32(partitionID),
-			Replicas: partitionReplicas,
+			PartitionID: uint32(partitionID),
+			Replicas:    partitionReplicas,
 		}
 		partitions = append(partitions, partition)
 	}
