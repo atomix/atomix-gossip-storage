@@ -163,7 +163,7 @@ spec:
     kind: GossipProtocol
   drivers:
   - version: v2beta1
-    image: atomix/atomix-gossip-storage-driver:latest
+    image: atomix/atomix-gossip-storage-driver:v0.1.0
     config:
       group: storage.atomix.io
       kind: GossipConfig
@@ -260,7 +260,7 @@ spec:
       serviceAccountName: atomix-gossip-storage-controller
       containers:
       - name: controller
-        image: atomix/atomix-gossip-storage-controller:latest
+        image: atomix/atomix-gossip-storage-controller:v0.1.0
         imagePullPolicy: IfNotPresent
         readinessProbe:
           exec:
@@ -286,4 +286,4 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
         - name: DEFAULT_NODE_V2BETA1_IMAGE
-          value: atomix/atomix-gossip-storage-node:latest
+          value: atomix/atomix-gossip-storage-node:v0.1.0
