@@ -50,7 +50,7 @@ const (
 	defaultImage          = "atomix/atomix-gossip-storage-node:latest"
 	headlessServiceSuffix = "hs"
 	appLabel              = "app"
-	databaseLabel         = "database"
+	protocolLabel         = "protocol"
 	appAtomix             = "atomix"
 )
 
@@ -760,7 +760,7 @@ func newLabels(protocol *storagev2beta1.GossipProtocol) map[string]string {
 		labels[key] = value
 	}
 	labels[appLabel] = appAtomix
-	labels[databaseLabel] = fmt.Sprintf("%s.%s", protocol.Name, protocol.Namespace)
+	labels[protocolLabel] = fmt.Sprintf("%s.%s", protocol.Name, protocol.Namespace)
 	return labels
 }
 

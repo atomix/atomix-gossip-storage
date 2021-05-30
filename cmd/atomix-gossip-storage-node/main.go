@@ -48,6 +48,11 @@ func main() {
 	set.RegisterService(node)
 	value.RegisterService(node)
 
+	counter.RegisterServer(node)
+	_map.RegisterServer(node)
+	set.RegisterServer(node)
+	value.RegisterServer(node)
+
 	// Start the node
 	if err := node.Start(); err != nil {
 		fmt.Println(err)
