@@ -16,6 +16,7 @@ package main
 
 import (
 	"fmt"
+	protocolapi "github.com/atomix/atomix-api/go/atomix/protocol"
 	"github.com/atomix/atomix-go-framework/pkg/atomix/cluster"
 	"github.com/atomix/atomix-go-framework/pkg/atomix/driver"
 	"github.com/atomix/atomix-go-framework/pkg/atomix/driver/env"
@@ -54,10 +55,13 @@ func main() {
 
 	// Create a gossip driver
 	d := driver.NewDriver(
-		provider,
-		driver.WithDriverID("gossip"),
-		driver.WithHost(host),
-		driver.WithPort(port))
+		cluster.NewCluster(
+			cluster.NewNetwork(),
+			protocolapi.ProtocolConfig{},
+			cluster.WithMemberID("gossip"),
+			cluster.WithHost(host),
+			cluster.WithPort(port)),
+		provider)
 
 	// Start the node
 	if err := d.Start(); err != nil {

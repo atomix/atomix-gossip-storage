@@ -3,9 +3,9 @@ module github.com/atomix/atomix-gossip-storage
 go 1.12
 
 require (
-	github.com/atomix/atomix-api/go v0.4.5
+	github.com/atomix/atomix-api/go v0.4.9
 	github.com/atomix/atomix-controller v0.5.0
-	github.com/atomix/atomix-go-framework v0.6.13
+	github.com/atomix/atomix-go-framework v0.9.3
 	github.com/gogo/protobuf v1.3.1
 	github.com/hashicorp/golang-lru v0.5.3 // indirect
 	github.com/onsi/ginkgo v1.13.0 // indirect

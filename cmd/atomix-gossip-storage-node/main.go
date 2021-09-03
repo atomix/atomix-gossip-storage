@@ -37,7 +37,7 @@ func main() {
 	nodeID := os.Args[1]
 	protocolConfig := parseProtocolConfig()
 
-	cluster := cluster.NewCluster(protocolConfig, cluster.WithMemberID(nodeID))
+	cluster := cluster.NewCluster(cluster.NewNetwork(), protocolConfig, cluster.WithMemberID(nodeID))
 
 	// Create an Atomix node
 	node := gossip.NewNode(cluster)
